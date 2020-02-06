@@ -25,7 +25,7 @@ router.get('/rating/:slug', (req, res) => {
         querySnapshot.forEach(doc => {
           response.push(doc.data().rates)
         })
-
+        res.set('Cache-Control', 'public, max-age=31557600')
         return res.status(200).send(response)
       })
 
